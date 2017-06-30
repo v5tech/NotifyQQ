@@ -3,6 +3,22 @@ This is a Jenkins notify plugin, send a message to QQ when a job is finished.
 
 I think this is a demand for Chinese only, so I will write the follow readme content in Chinese. if you want it change to English, please let me know.
 
+使用`Docker`构建`Mojo-Webqq`
+
+使用本项目提供的`Dockerfile`构建`Mojo-Webqq`镜像
+
+```
+docker build -t mojo-webqq .
+```
+
+运行构建好的`mojo-webqq`镜像
+
+```
+docker run -it --env MOJO_WEBQQ_LOG_ENCODING=utf8 -p 5000:5000 -v /tmp:/tmp mojo-webqq 
+```
+
+接下来扫码登录你懂得。
+
 ## 使用说明
 
 需要做如下准备：
@@ -11,7 +27,7 @@ I think this is a demand for Chinese only, so I will write the follow readme con
 2. (可选)Jenkins插件编写基础。
 3. 安装NotifyQQ插件，在job配置界面设置需要通知的QQ号，支持群号和个人号。
 4. 注意：该插件依赖[Mojo-Webqq](https://github.com/sjdy521/Mojo-Webqq)的运行，否则不能正常工作。
-5. 使用Maven构建，即`mvn hpi:hpi`最终输出`NotifyQQ.hpi`、`NotifyQQ.jar`文件，在Jenkins插件列表中安装`NotifyQQ.hpi`即可。
+5. 使用Maven构建，即`mvn compile hpi:hpi`最终输出`NotifyQQ.hpi`、`NotifyQQ.jar`文件，在Jenkins插件列表中安装`NotifyQQ.hpi`即可。
 ## Screenshots
 
 * Jenkins配置
@@ -54,7 +70,7 @@ https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins
 
 * Email:*sxyx2008#gmail.com*(#替换为@)
 
-* HomePage:*[aimeizi.net](http://aimeizi.net)*
+* HomePage:*[notes.coding.me](http://notes.coding.me)*
 
 * Weibo:*[http://weibo.com/qq184675420](http://weibo.com/qq184675420)*(荧星诉语)
 
@@ -65,4 +81,4 @@ https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins
 
 MIT
 
-Copyright (c) 2016 aimeizi
+Copyright (c) 2016 ameizi
